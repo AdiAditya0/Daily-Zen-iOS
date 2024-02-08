@@ -2,7 +2,7 @@ import SwiftUI
 
 struct RootNavigation: View {
     var body: some View {
-        CustomNavigationTab()
+        DailyZenView(viewModel: DailyZenViewModel())
     }
 }
 

@@ -3,6 +3,7 @@ import Combine
 
 class NetworkService {
     private let session: URLSession
+    let baseUrl = "https://m67m0xe4oj.execute-api.us-east-1.amazonaws.com/prod/dailyzen/"
     
     init() {
         let configuration = URLSessionConfiguration.default

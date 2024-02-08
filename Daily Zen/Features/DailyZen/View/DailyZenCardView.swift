@@ -21,7 +21,7 @@ struct DailyZenCardView: View {
                     .font(CustomFonts.semiBold(15))
                     .foregroundColor(theme.primaryTextColor)
                     .padding(16)
-
+                
                 RemoteImage(url: detail.dzImageUrl)
                     .frame(idealWidth: screenWidth, maxWidth: 400, idealHeight: screenWidth, maxHeight: 400)
                     .overlay(TopBottomBorder().stroke(theme.borderColor, lineWidth: 1))
@@ -68,6 +68,7 @@ struct DailyZenCardView: View {
         .frame(height: screenWidth + 89)
         .padding(16)
     }
+    
 }
 
 struct DailyZenCardView_Previews: PreviewProvider {
@@ -75,9 +76,9 @@ struct DailyZenCardView_Previews: PreviewProvider {
     
     static var previews: some View {
         VStack{
-            DailyZenCardView(detail: DailyZenDetail(text: "", author: "", id: "", dzType: "", themeTitle: "", articleUrl: "", dzImageUrl: "", primaryCTAText: "", sharePrefix: ""), theme: LightTheme())
+            DailyZenCardView(detail: DailyZenDetail(text: "", author: "", uniqueId: "", dzType: "", themeTitle: "", articleUrl: "", dzImageUrl: "", primaryCTAText: "", sharePrefix: ""), theme: LightTheme())
                 .previewLayout(.sizeThatFits)
-            DailyZenCardView(detail: DailyZenDetail(text: "", author: "", id: "", dzType: "", themeTitle: "", articleUrl: "", dzImageUrl: "", primaryCTAText: "", sharePrefix: ""), theme: DarkTheme())
+            DailyZenCardView(detail: DailyZenDetail(text: "", author: "", uniqueId: "", dzType: "", themeTitle: "", articleUrl: "", dzImageUrl: "", primaryCTAText: "", sharePrefix: ""), theme: DarkTheme())
                 .previewLayout(.sizeThatFits)
         }
     }

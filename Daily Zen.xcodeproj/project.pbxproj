@@ -17,7 +17,6 @@
 		695763942B750A1900ABDA0C /* RootNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763932B750A1900ABDA0C /* RootNavigation.swift */; };
 		695763992B750E3E00ABDA0C /* DailyZenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763982B750E3E00ABDA0C /* DailyZenViewModel.swift */; };
 		6957639B2B750E4600ABDA0C /* DailyZenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6957639A2B750E4600ABDA0C /* DailyZenView.swift */; };
-		6957639F2B750F8A00ABDA0C /* CustomNavigationTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6957639E2B750F8A00ABDA0C /* CustomNavigationTab.swift */; };
 		695763A12B75120C00ABDA0C /* DailyZenCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763A02B75120C00ABDA0C /* DailyZenCardView.swift */; };
 		695763A42B75128B00ABDA0C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763A32B75128B00ABDA0C /* Theme.swift */; };
 		695763A72B75155000ABDA0C /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763A62B75155000ABDA0C /* Color+Extension.swift */; };
@@ -29,6 +28,7 @@
 		695763BD2B75497400ABDA0C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763BC2B75497400ABDA0C /* NetworkService.swift */; };
 		695763C02B754A0300ABDA0C /* DailyZenDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763BF2B754A0300ABDA0C /* DailyZenDetail.swift */; };
 		695763C22B7566D700ABDA0C /* TopBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763C12B7566D700ABDA0C /* TopBottomBorder.swift */; };
+		695763C42B756FEA00ABDA0C /* PersistenceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763C32B756FEA00ABDA0C /* PersistenceStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +62,6 @@
 		695763932B750A1900ABDA0C /* RootNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigation.swift; sourceTree = "<group>"; };
 		695763982B750E3E00ABDA0C /* DailyZenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyZenViewModel.swift; sourceTree = "<group>"; };
 		6957639A2B750E4600ABDA0C /* DailyZenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyZenView.swift; sourceTree = "<group>"; };
-		6957639E2B750F8A00ABDA0C /* CustomNavigationTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationTab.swift; sourceTree = "<group>"; };
 		695763A02B75120C00ABDA0C /* DailyZenCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyZenCardView.swift; sourceTree = "<group>"; };
 		695763A32B75128B00ABDA0C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		695763A62B75155000ABDA0C /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -74,6 +73,7 @@
 		695763BC2B75497400ABDA0C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		695763BF2B754A0300ABDA0C /* DailyZenDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyZenDetail.swift; sourceTree = "<group>"; };
 		695763C12B7566D700ABDA0C /* TopBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBottomBorder.swift; sourceTree = "<group>"; };
+		695763C32B756FEA00ABDA0C /* PersistenceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				695763B42B75411200ABDA0C /* RemoteImage */,
-				6957639C2B750F6500ABDA0C /* CustomNavigationTab */,
 				695763952B750E0100ABDA0C /* DailyZen */,
 				695763912B7509E900ABDA0C /* RootNavigation */,
 			);
@@ -214,22 +213,6 @@
 				695763982B750E3E00ABDA0C /* DailyZenViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		6957639C2B750F6500ABDA0C /* CustomNavigationTab */ = {
-			isa = PBXGroup;
-			children = (
-				6957639D2B750F7600ABDA0C /* View */,
-			);
-			path = CustomNavigationTab;
-			sourceTree = "<group>";
-		};
-		6957639D2B750F7600ABDA0C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				6957639E2B750F8A00ABDA0C /* CustomNavigationTab.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		695763A22B75127B00ABDA0C /* Utilities */ = {
@@ -280,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				695763BC2B75497400ABDA0C /* NetworkService.swift */,
+				695763C32B756FEA00ABDA0C /* PersistenceStore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -425,7 +409,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6957639F2B750F8A00ABDA0C /* CustomNavigationTab.swift in Sources */,
 				695763A72B75155000ABDA0C /* Color+Extension.swift in Sources */,
 				695763A42B75128B00ABDA0C /* Theme.swift in Sources */,
 				6957636C2B7506B400ABDA0C /* Daily_Zen.xcdatamodeld in Sources */,
@@ -439,6 +422,7 @@
 				695763A12B75120C00ABDA0C /* DailyZenCardView.swift in Sources */,
 				695763BD2B75497400ABDA0C /* NetworkService.swift in Sources */,
 				695763992B750E3E00ABDA0C /* DailyZenViewModel.swift in Sources */,
+				695763C42B756FEA00ABDA0C /* PersistenceStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

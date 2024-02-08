@@ -22,6 +22,7 @@ struct CustomNavigationTab: View {
                     .foregroundColor(.blue)
             )
             .navigationBarTitle("Today", displayMode: .inline)
+            .labelsHidden()
         }
     }
 }

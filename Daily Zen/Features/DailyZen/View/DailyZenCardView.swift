@@ -10,25 +10,22 @@ import SwiftUI
 import SwiftUI
 
 struct DailyZenCardView: View {
-    let imageName: String
-    let title: String
-    let description: String
+    let detail: DailyZenDetail
     let theme: Theme
+    let screenWidth = UIScreen.main.bounds.size.width
     
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
-                Text(title)
+                Text(detail.themeTitle)
                     .font(CustomFonts.semiBold(15))
                     .foregroundColor(theme.primaryTextColor)
-                    .padding()
-                
-                Image(imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: geometry.size.width - 52, height: 150)
-                    .cornerRadius(12)
-                    .padding(10)
+                    .padding(16)
+
+                RemoteImage(url: detail.dzImageUrl)
+                    .frame(idealWidth: screenWidth, maxWidth: 400, idealHeight: screenWidth, maxHeight: 400)
+                    .overlay(TopBottomBorder().stroke(theme.borderColor, lineWidth: 1))
+                    .padding(-4)
                 
                 HStack {
                     ZStack {
@@ -61,14 +58,15 @@ struct DailyZenCardView: View {
                             .frame(width: 20, height: 20)
                     }
                 }
-                .padding()
+                .padding(16)
             }
             .background(theme.secondaryBackgroundColor)
             .cornerRadius(12)
-            .shadow(radius: 2)
-            .padding(.horizontal, 10)
+            .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.1), radius: 9)
             .frame(maxWidth: .infinity)
         }
+        .frame(height: screenWidth + 89)
+        .padding(16)
     }
 }
 
@@ -76,7 +74,11 @@ struct DailyZenCardView_Previews: PreviewProvider {
     @Environment(\.colorScheme) var colorSchema
     
     static var previews: some View {
-        DailyZenCardView(imageName: "exampleImage", title: "Example Title", description: "Example Description", theme: DarkTheme())
-            .previewLayout(.sizeThatFits)
+        VStack{
+            DailyZenCardView(detail: DailyZenDetail(text: "", author: "", id: "", dzType: "", themeTitle: "", articleUrl: "", dzImageUrl: "", primaryCTAText: "", sharePrefix: ""), theme: LightTheme())
+                .previewLayout(.sizeThatFits)
+            DailyZenCardView(detail: DailyZenDetail(text: "", author: "", id: "", dzType: "", themeTitle: "", articleUrl: "", dzImageUrl: "", primaryCTAText: "", sharePrefix: ""), theme: DarkTheme())
+                .previewLayout(.sizeThatFits)
+        }
     }
 }

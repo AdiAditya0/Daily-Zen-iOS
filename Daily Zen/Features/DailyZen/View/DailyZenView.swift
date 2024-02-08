@@ -5,6 +5,21 @@ struct DailyZenView: View {
     @ObservedObject var viewModel: DailyZenViewModel
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
-        DailyZenCardView(imageName: "exampleImage", title: "Example Title", description: "Example Description", theme: colorScheme == .light ? LightTheme() : DarkTheme())
+        List {
+            ForEach(viewModel.dailyZenDetails ?? [], id: \.self) { detail in
+                DailyZenCardView(
+                    detail: detail,
+                    theme: colorScheme == .light ? LightTheme() : DarkTheme()
+                )
+                .padding(0)
+                .listRowInsets(EdgeInsets())
+                .listRowSeparator(.hidden)
+            }
+        }
+        .listStyle(PlainListStyle())
+        .padding(0)
+        .onAppear {
+            viewModel.fetchData()
+        }
     }
 }

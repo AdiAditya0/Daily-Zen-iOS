@@ -25,6 +25,10 @@
 		695763AF2B753C2800ABDA0C /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 695763AE2B753C2800ABDA0C /* Inter-Medium.ttf */; };
 		695763B12B753E0200ABDA0C /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 695763B02B753E0200ABDA0C /* Inter-SemiBold.ttf */; };
 		695763B32B753E7E00ABDA0C /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763B22B753E7E00ABDA0C /* CustomFont.swift */; };
+		695763B72B75413400ABDA0C /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763B62B75413400ABDA0C /* RemoteImage.swift */; };
+		695763BD2B75497400ABDA0C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763BC2B75497400ABDA0C /* NetworkService.swift */; };
+		695763C02B754A0300ABDA0C /* DailyZenDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763BF2B754A0300ABDA0C /* DailyZenDetail.swift */; };
+		695763C22B7566D700ABDA0C /* TopBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763C12B7566D700ABDA0C /* TopBottomBorder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +70,10 @@
 		695763AE2B753C2800ABDA0C /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		695763B02B753E0200ABDA0C /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		695763B22B753E7E00ABDA0C /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		695763B62B75413400ABDA0C /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		695763BC2B75497400ABDA0C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		695763BF2B754A0300ABDA0C /* DailyZenDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyZenDetail.swift; sourceTree = "<group>"; };
+		695763C12B7566D700ABDA0C /* TopBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBottomBorder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +124,7 @@
 		6957635E2B7506B300ABDA0C /* Daily Zen */ = {
 			isa = PBXGroup;
 			children = (
+				695763BB2B75495F00ABDA0C /* Services */,
 				695763A82B7534A100ABDA0C /* Resources */,
 				695763A52B75153A00ABDA0C /* Extensions */,
 				695763A22B75127B00ABDA0C /* Utilities */,
@@ -156,6 +165,7 @@
 		695763902B7509C500ABDA0C /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				695763B42B75411200ABDA0C /* RemoteImage */,
 				6957639C2B750F6500ABDA0C /* CustomNavigationTab */,
 				695763952B750E0100ABDA0C /* DailyZen */,
 				695763912B7509E900ABDA0C /* RootNavigation */,
@@ -182,6 +192,7 @@
 		695763952B750E0100ABDA0C /* DailyZen */ = {
 			isa = PBXGroup;
 			children = (
+				695763BE2B7549F000ABDA0C /* Model */,
 				695763972B750E1200ABDA0C /* ViewModel */,
 				695763962B750E0C00ABDA0C /* View */,
 			);
@@ -226,6 +237,7 @@
 			children = (
 				695763A32B75128B00ABDA0C /* Theme.swift */,
 				695763B22B753E7E00ABDA0C /* CustomFont.swift */,
+				695763C12B7566D700ABDA0C /* TopBottomBorder.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -246,6 +258,38 @@
 				695763A92B7534B500ABDA0C /* Inter.ttf */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		695763B42B75411200ABDA0C /* RemoteImage */ = {
+			isa = PBXGroup;
+			children = (
+				695763B52B75412600ABDA0C /* View */,
+			);
+			path = RemoteImage;
+			sourceTree = "<group>";
+		};
+		695763B52B75412600ABDA0C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				695763B62B75413400ABDA0C /* RemoteImage.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		695763BB2B75495F00ABDA0C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				695763BC2B75497400ABDA0C /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		695763BE2B7549F000ABDA0C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				695763BF2B754A0300ABDA0C /* DailyZenDetail.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,11 +429,15 @@
 				695763A72B75155000ABDA0C /* Color+Extension.swift in Sources */,
 				695763A42B75128B00ABDA0C /* Theme.swift in Sources */,
 				6957636C2B7506B400ABDA0C /* Daily_Zen.xcdatamodeld in Sources */,
+				695763B72B75413400ABDA0C /* RemoteImage.swift in Sources */,
 				695763942B750A1900ABDA0C /* RootNavigation.swift in Sources */,
+				695763C22B7566D700ABDA0C /* TopBottomBorder.swift in Sources */,
+				695763C02B754A0300ABDA0C /* DailyZenDetail.swift in Sources */,
 				695763B32B753E7E00ABDA0C /* CustomFont.swift in Sources */,
 				6957639B2B750E4600ABDA0C /* DailyZenView.swift in Sources */,
 				695763602B7506B300ABDA0C /* Daily_ZenApp.swift in Sources */,
 				695763A12B75120C00ABDA0C /* DailyZenCardView.swift in Sources */,
+				695763BD2B75497400ABDA0C /* NetworkService.swift in Sources */,
 				695763992B750E3E00ABDA0C /* DailyZenViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

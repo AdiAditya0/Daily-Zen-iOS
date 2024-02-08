@@ -21,6 +21,10 @@
 		695763A12B75120C00ABDA0C /* DailyZenCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763A02B75120C00ABDA0C /* DailyZenCardView.swift */; };
 		695763A42B75128B00ABDA0C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763A32B75128B00ABDA0C /* Theme.swift */; };
 		695763A72B75155000ABDA0C /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763A62B75155000ABDA0C /* Color+Extension.swift */; };
+		695763AA2B7534B500ABDA0C /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 695763A92B7534B500ABDA0C /* Inter.ttf */; };
+		695763AF2B753C2800ABDA0C /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 695763AE2B753C2800ABDA0C /* Inter-Medium.ttf */; };
+		695763B12B753E0200ABDA0C /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 695763B02B753E0200ABDA0C /* Inter-SemiBold.ttf */; };
+		695763B32B753E7E00ABDA0C /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763B22B753E7E00ABDA0C /* CustomFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +62,10 @@
 		695763A02B75120C00ABDA0C /* DailyZenCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyZenCardView.swift; sourceTree = "<group>"; };
 		695763A32B75128B00ABDA0C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		695763A62B75155000ABDA0C /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		695763A92B7534B500ABDA0C /* Inter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inter.ttf; sourceTree = "<group>"; };
+		695763AE2B753C2800ABDA0C /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		695763B02B753E0200ABDA0C /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		695763B22B753E7E00ABDA0C /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +116,7 @@
 		6957635E2B7506B300ABDA0C /* Daily Zen */ = {
 			isa = PBXGroup;
 			children = (
+				695763A82B7534A100ABDA0C /* Resources */,
 				695763A52B75153A00ABDA0C /* Extensions */,
 				695763A22B75127B00ABDA0C /* Utilities */,
 				695763902B7509C500ABDA0C /* Features */,
@@ -216,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				695763A32B75128B00ABDA0C /* Theme.swift */,
+				695763B22B753E7E00ABDA0C /* CustomFont.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -226,6 +236,16 @@
 				695763A62B75155000ABDA0C /* Color+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		695763A82B7534A100ABDA0C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				695763B02B753E0200ABDA0C /* Inter-SemiBold.ttf */,
+				695763AE2B753C2800ABDA0C /* Inter-Medium.ttf */,
+				695763A92B7534B500ABDA0C /* Inter.ttf */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,8 +352,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				695763AF2B753C2800ABDA0C /* Inter-Medium.ttf in Resources */,
 				695763672B7506B400ABDA0C /* Preview Assets.xcassets in Resources */,
 				695763642B7506B400ABDA0C /* Assets.xcassets in Resources */,
+				695763B12B753E0200ABDA0C /* Inter-SemiBold.ttf in Resources */,
+				695763AA2B7534B500ABDA0C /* Inter.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +386,7 @@
 				695763A42B75128B00ABDA0C /* Theme.swift in Sources */,
 				6957636C2B7506B400ABDA0C /* Daily_Zen.xcdatamodeld in Sources */,
 				695763942B750A1900ABDA0C /* RootNavigation.swift in Sources */,
+				695763B32B753E7E00ABDA0C /* CustomFont.swift in Sources */,
 				6957639B2B750E4600ABDA0C /* DailyZenView.swift in Sources */,
 				695763602B7506B300ABDA0C /* Daily_ZenApp.swift in Sources */,
 				695763A12B75120C00ABDA0C /* DailyZenCardView.swift in Sources */,
@@ -528,10 +552,10 @@
 				DEVELOPMENT_TEAM = J6P8W8M785;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Daily-Zen-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -557,10 +581,10 @@
 				DEVELOPMENT_TEAM = J6P8W8M785;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Daily-Zen-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

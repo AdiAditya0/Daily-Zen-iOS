@@ -22,6 +22,7 @@ struct RemoteImage: View {
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
+                imageData = UIImage(named: "placeholder-image")?.pngData()
                 return
             }
             

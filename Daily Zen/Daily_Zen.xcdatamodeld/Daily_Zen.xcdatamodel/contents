@@ -3,9 +3,11 @@
     <entity name="DailyZenDetailMo" representedClassName="DailyZenDetailMo" syncable="YES" codeGenerationType="class">
         <attribute name="articleUrl" optional="YES" attributeType="String"/>
         <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="dateShowed" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dateString" optional="YES" attributeType="String"/>
         <attribute name="dzImageUrl" optional="YES" attributeType="String"/>
         <attribute name="dzType" optional="YES" attributeType="String"/>
+        <attribute name="orderIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="primaryCTAText" optional="YES" attributeType="String"/>
         <attribute name="sharePrefix" optional="YES" attributeType="String"/>
         <attribute name="text" optional="YES" attributeType="String"/>

@@ -11,6 +11,7 @@ struct DailyZenDetail: Codable, Hashable {
     let primaryCTAText: String
     let sharePrefix: String
     var dateString: String?
+    var orderIndex: Int16?
 }
 
 extension DailyZenDetail {
@@ -25,5 +26,6 @@ extension DailyZenDetail {
         self.dzImageUrl = dailyZenDetailMo.dzImageUrl ?? ""
         self.primaryCTAText = dailyZenDetailMo.primaryCTAText ?? ""
         self.sharePrefix = dailyZenDetailMo.sharePrefix ?? ""
+        self.orderIndex = dailyZenDetailMo.orderIndex
     }
 }

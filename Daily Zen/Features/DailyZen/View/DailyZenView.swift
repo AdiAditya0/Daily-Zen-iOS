@@ -7,41 +7,56 @@ struct DailyZenView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.dailyZenDetails ?? [], id: \.self) { detail in
-                    DailyZenCardView(
-                        detail: detail,
-                        theme: colorScheme == .light ? LightTheme() : DarkTheme()
-                    )
-                    .padding(0)
-                    .listRowInsets(EdgeInsets())
-                    .listRowSeparator(.hidden)
+            ZStack {
+                List {
+                    ForEach(viewModel.dailyZenDetails ?? [], id: \.self) { detail in
+                        DailyZenCardView(
+                            detail: detail,
+                            theme: colorScheme == .light ? LightTheme() : DarkTheme()
+                        )
+                        .padding(0)
+                        .listRowInsets(EdgeInsets())
+                        .listRowSeparator(.hidden)
+                    }
+                }
+                .listStyle(PlainListStyle())
+                .padding(0)
+                if viewModel.showLoader {
+                    ProgressView()
                 }
             }
-            .listStyle(PlainListStyle())
-            .padding(0)
             .onAppear {
                 viewModel.fetchData(date: Date.now)
+                viewModel.deleteOlderEntities()
             }
             .navigationBarItems(
-                leading:
-                    Button(action: {
-                        viewModel.fetchDataPreviousDate()
-                    }) {
-                        Text("Previous")
-                    }
-                    .foregroundColor(.blue)
+                leading: viewModel.currentDayDiff > 6
+                ? AnyView(EmptyView())
+                : AnyView(Button(action: {
+                    viewModel.fetchDataPreviousDate()
+                }) {
+                    Text("Previous")
+                }
+                    .foregroundColor(.blue))
+
                 ,
-                trailing:
-                    Button(action: {
-                        viewModel.fetchDataNextDate()
-                    }) {
-                        Text("Next")
-                    }
-                    .foregroundColor(.blue)
+                trailing: viewModel.currentDayDiff == 0
+                ? AnyView(EmptyView())
+                : AnyView(              Button(action: {
+                    viewModel.fetchDataNextDate()
+                }) {
+                    Text("Next")
+                }
+                    .foregroundColor(.blue))
             )
             .navigationBarTitle("Today", displayMode: .inline)
             .labelsHidden()
+        }
+        .onAppear {
+            self.viewModel.startMonitoring()
+        }
+        .onDisappear {
+            self.viewModel.stopMonitoring()
         }
     }
 }

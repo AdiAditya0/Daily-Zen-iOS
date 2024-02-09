@@ -50,13 +50,12 @@ class DailyZenViewModel: ObservableObject {
     
     func fetchData(date: Date) {
         let fDate = getFormatted(date)
-        guard let url = URL(string: "\(networkService.baseUrl)?date=\(fDate)&version=2") else { return }
-        
         let localData = fetchLocalData(dateString: fDate)
         
         if (localData.count > 0) {
             self.dailyZenDetails = localData
         } else if isOnline {
+            guard let url = URL(string: "\(networkService.baseUrl)?date=\(fDate)&version=2") else { return }
             self.showLoader = true
             networkService.fetchData(from: url)
                 .sink(receiveCompletion: { [weak self] completion in

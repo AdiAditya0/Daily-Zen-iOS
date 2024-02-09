@@ -11,3 +11,13 @@ struct TopBottomBorder: Shape {
         return path
     }
 }
+
+struct TopBorder: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        let lineWidth: CGFloat = 1
+        let topBorder = CGRect(x: 0, y: 0, width: rect.width, height: lineWidth)
+        path.addRect(topBorder)
+        return path
+    }
+}

@@ -3,6 +3,7 @@ import CoreData
 
 struct DailyZenView: View {
     @ObservedObject var viewModel: DailyZenViewModel
+    @EnvironmentObject var env: EnvironmentData
     
     var body: some View {
         NavigationView {
@@ -13,6 +14,20 @@ struct DailyZenView: View {
                         .padding(0)
                         .listRowInsets(EdgeInsets())
                         .listRowSeparator(.hidden)
+                    }
+                    HStack{
+                        Spacer()
+                        VStack {
+                            Image("person")
+                                .resizable()
+                                .frame(width: 127, height: 128)
+                            Text("That’s the Zen for today!\nSee you tomorrow :)")
+                                .font(CustomFonts.regular(14))
+                                .foregroundColor(env.theme.secondaryTextColor)
+                                .multilineTextAlignment(.center)
+                        }
+                        .padding(.vertical, 50)
+                        Spacer()
                     }
                 }
                 .listStyle(PlainListStyle())

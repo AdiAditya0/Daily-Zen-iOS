@@ -1,13 +1,15 @@
 import SwiftUI
+import Foundation
 
 struct SocialMediaButton: View {
     let title: String
     let image: String
+    let action: () -> Void
     @EnvironmentObject var env: EnvironmentData
     
     var body: some View {
         Button(action: {
-            
+            action()
         }) {
             VStack {
                 Image(image)
@@ -23,11 +25,12 @@ struct SocialMediaButton: View {
 struct ExtraButton: View {
     let title: String
     let image: String
+    let action: () -> Void
     @EnvironmentObject var env: EnvironmentData
     
     var body: some View {
         Button(action: {
-            
+            action()
         }) {
             VStack {
                 ZStack {
@@ -35,6 +38,8 @@ struct ExtraButton: View {
                         .fill(env.theme.buttonBackgroundColor)
                         .frame(width: 44, height: 44)
                     Image(systemName: image)
+                        .renderingMode(.template)
+                        .foregroundColor(env.theme.labelColor)
                         .frame(width: 24, height: 24)
                 }
                 Text(title)
@@ -47,9 +52,11 @@ struct ExtraButton: View {
 
 struct CustomShareView: View {
     @Binding var isShowingModal: Bool
+    @State var isCopied = false
     @EnvironmentObject var env: EnvironmentData
     let screenWidth = UIScreen.main.bounds.size.width
-    let imageUrl: String
+    let detail: DailyZenDetail
+    let popupHeight = 300 + (UIScreen.main.bounds.size.width > 400 ? 368 : UIScreen.main.bounds.size.width - 32)
     
     var body: some View {
         VStack {}
@@ -57,7 +64,7 @@ struct CustomShareView: View {
             .sheet(isPresented: $isShowingModal) {
                 VStack {
                     HStack {
-                        Text("Inspire your friends")
+                        Text(detail.primaryCTAText)
                             .font(CustomFonts.semiBold(16))
                             .foregroundColor(env.theme.primaryTextColor)
                         Spacer()
@@ -74,24 +81,39 @@ struct CustomShareView: View {
                         }
                     }
                     
-                    RemoteImage(url: imageUrl)
-                        .frame(idealWidth: screenWidth, maxWidth: 400, idealHeight: screenWidth, maxHeight: 400)
+                    RemoteImage(url: detail.dzImageUrl)
+                        .frame(idealWidth: screenWidth - 32, maxWidth: 400, idealHeight: screenWidth - 32, maxHeight: 400)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(env.theme.borderColor, lineWidth: 1)
+                        )
                         .cornerRadius(16)
                     
                     HStack {
-                        Text("dcasda")
+                        Text(detail.sharePrefix + " " + (detail.articleUrl ?? ""))
                             .font(CustomFonts.regular(16))
                             .padding(16)
                         Spacer()
                         Button(action: {
-                            
+                            UIPasteboard.general.string = detail.text + " - " + detail.author
+                            isCopied = true
                         }) {
-                            Text("Copy")
-                                .background(.red)
-                                .font(CustomFonts.regular(17))
-                                .padding(8.5)
-                                .cornerRadius(34)
+                            if isCopied {
+                                Text("Copied")
+                                    .font(CustomFonts.regular(17))
+                                    .foregroundColor(Color(hex: "#FFFFFF"))
+                                    .padding(.vertical, 8.5)
+                                    .padding(.horizontal, 16)
+                            } else {
+                                Text("Copy")
+                                    .font(CustomFonts.regular(17))
+                                    .foregroundColor(Color(hex: "#EA436B"))
+                                    .padding(.vertical, 8.5)
+                                    .padding(.horizontal, 16)
+                            }
                         }
+                        .background(isCopied ? Color(hex: "#EA436B") : Color(hex: "#EA436B26"))
+                        .cornerRadius(34)
                         .padding(.horizontal, 16)
                     }
                     .background(env.theme.secondaryBackgroundColor)
@@ -104,52 +126,80 @@ struct CustomShareView: View {
                             .foregroundColor(env.theme.primaryTextColor)
                             .padding(.vertical, 16)
                         HStack {
-                            SocialMediaButton(title: "WhatsApp", image: "whatsapp-icon")
+                            SocialMediaButton(title: "WhatsApp", image: "whatsapp-icon") {
+                                shareOnWhatsApp()
+                            }
                             Spacer()
-                            SocialMediaButton(title: "Instagram", image: "instagram-icon")
+                            SocialMediaButton(title: "Instagram", image: "instagram-icon") {
+                                shareOnInstagram()
+                            }
                             Spacer()
-                            SocialMediaButton(title: "FaceBook", image: "facebook-icon")
+                            SocialMediaButton(title: "FaceBook", image: "facebook-icon") {
+                                shareOnFacebook()
+                            }
                             Spacer()
-                            ExtraButton(title: "Download", image: "square.and.arrow.down")
+                            ExtraButton(title: "Download", image: "square.and.arrow.down") {}
                             Spacer()
-                            ExtraButton(title: "More", image: "ellipsis")
+                            ExtraButton(title: "More", image: "ellipsis") {
+                                moreOptions()
+                            }
                         }
                     }
                     .overlay(TopBorder().stroke(env.theme.borderColor, lineWidth: 1))
                 }
                 .padding(16)
-                .presentationDetents([.height(600)])
+                .presentationDetents([.height(popupHeight)])
                 
             }
     }
     
     func shareOnWhatsApp() {
-        let whatsappURL = URL(string: "whatsapp://send?text=Hello%2C%20this%20is%20a%20shared%20text%20message.%20%F0%9F%98%8A&image=https://example.com/image.jpg")!
-        
-        if UIApplication.shared.canOpenURL(whatsappURL) {
-            UIApplication.shared.open(whatsappURL, options: [:], completionHandler: nil)
-        } else {
-            print("WhatsApp is not installed.")
+        let originalString = detail.sharePrefix + " " + (detail.articleUrl ?? "")
+        if let encodedString = originalString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            let url = URL(string: "whatsapp://send?text=\(encodedString)&image=\(detail.dzImageUrl)")!
+            
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                print("WhatsApp is not installed.")
+            }
         }
     }
     
     func shareOnInstagram() {
-        let instagramURL = URL(string: "instagram://library?AssetPath=https://example.com/image.jpg&caption=Hello%2C%20this%20is%20a%20shared%20text%20message.%20%F0%9F%98%8A")!
-        
-        if UIApplication.shared.canOpenURL(instagramURL) {
-            UIApplication.shared.open(instagramURL, options: [:], completionHandler: nil)
-        } else {
-            print("Instagram is not installed.")
+        let originalString = detail.sharePrefix + " " + (detail.articleUrl ?? "")
+        if let encodedString = originalString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            let url = URL(string: "instagram://library?caption=\(encodedString)&AssetPath=\(detail.dzImageUrl)")!
+            
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                print("Instagram is not installed.")
+            }
         }
     }
     
     func shareOnFacebook() {
-        let facebookURL = URL(string: "fb://profile?app_scoped_user_id=&text=Hello%2C%20this%20is%20a%20shared%20text%20message.%20%F0%9F%98%8A&image=https://example.com/image.jpg")!
-        
-        if UIApplication.shared.canOpenURL(facebookURL) {
-            UIApplication.shared.open(facebookURL, options: [:], completionHandler: nil)
-        } else {
-            print("Facebook is not installed.")
+        let originalString = detail.sharePrefix + " " + (detail.articleUrl ?? "")
+        if let encodedString = originalString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            let url = URL(string: "fb://profile?app_scoped_user_id=&text=\(encodedString)&image=\(detail.dzImageUrl)")!
+            
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                print("Facebook is not installed.")
+            }
+        }
+    }
+    
+    func moreOptions() {
+        isShowingModal = false
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            let activityViewController = UIActivityViewController(
+                activityItems: [detail.dzImageUrl, detail.sharePrefix + " " + (detail.articleUrl ?? "")],
+                applicationActivities: nil)
+            
+            UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
         }
     }
 }

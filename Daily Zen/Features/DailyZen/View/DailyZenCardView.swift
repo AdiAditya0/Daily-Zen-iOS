@@ -1,12 +1,3 @@
-//
-//  DailyZenCardView.swift
-//  Daily Zen
-//
-//  Created by Aditya Kumrawat on 08/02/24.
-//
-
-import SwiftUI
-
 import SwiftUI
 
 struct DailyZenCardView: View {
@@ -16,82 +7,88 @@ struct DailyZenCardView: View {
     @EnvironmentObject var env: EnvironmentData
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack(alignment: .leading) {
-                Text(detail.themeTitle)
-                    .font(CustomFonts.semiBold(15))
-                    .foregroundColor(env.theme.primaryTextColor)
-                    .padding(16)
-                
-                RemoteImage(url: detail.dzImageUrl)
-                    .frame(idealWidth: screenWidth, maxWidth: 400, idealHeight: screenWidth, maxHeight: 400)
-                    .overlay(TopBottomBorder().stroke(env.theme.borderColor, lineWidth: 1))
-                    .padding(-4)
-                
-                HStack {
-                    Button(action:  {
-                        isShowingModal = true
-                    }) {
-                        ZStack {
-                            Circle()
-                                .fill(env.theme.buttonBackgroundColor)
-                                .frame(width: 30, height: 30)
-                            Image(systemName: "square.and.arrow.up")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 20, height: 20)
-                        }
+        VStack(alignment: .leading) {
+            CustomShareView(isShowingModal: $isShowingModal, detail: detail)
+            Text(detail.themeTitle)
+                .font(CustomFonts.semiBold(15))
+                .foregroundColor(env.theme.secondaryTextColor)
+                .padding(16)
+            
+            RemoteImage(url: detail.dzImageUrl)
+                .frame(idealWidth: screenWidth, maxWidth: 400, idealHeight: screenWidth, maxHeight: 400)
+                .overlay(TopBottomBorder().stroke(env.theme.borderColor, lineWidth: 1))
+                .padding(-4)
+            HStack {
+                if detail.dzType == "read", let articleUrl = detail.articleUrl, !articleUrl.isEmpty {
+                    HStack {
+                        Image(systemName: "doc.text")
+                            .renderingMode(.template)
+                            .foregroundColor(env.theme.labelColor)
+                            .frame(width: 18, height: 19)
+                        Text("Read Full Post")
+                            .font(CustomFonts.regular(17))
+                            .foregroundColor(env.theme.secondaryTextColor)
+                            .padding(.vertical, 8.5)
                     }
-                    
+                    .padding(.horizontal, 16)
+                    .background(env.theme.secondaryBackgroundColor)
+                    .cornerRadius(34)
+                    .onTapGesture {
+                        openExternalBrowser(withURL: articleUrl)
+                    }
+                }
+                
+                ZStack {
+                    Circle()
+                        .fill(env.theme.buttonBackgroundColor)
+                        .frame(width: 30, height: 30)
+                    Image(systemName: "square.and.arrow.up")
+                        .renderingMode(.template)
+                        .foregroundColor(env.theme.labelColor)
+                        .frame(width: 20, height: 20)
+                }
+                .onTapGesture {
+                    isShowingModal = true
+                }
+                
+                if detail.dzType == "add_affn" {
                     ZStack {
                         Circle()
                             .fill(env.theme.buttonBackgroundColor)
                             .frame(width: 30, height: 30)
                         Image(systemName: "plus.circle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 20, height: 20)
-                    }
-                    
-                    ZStack {
-                        Circle()
-                            .fill(env.theme.buttonBackgroundColor)
-                            .frame(width: 30, height: 30)
-                        Image(systemName: "bookmark")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .renderingMode(.template)
+                            .foregroundColor(env.theme.labelColor)
                             .frame(width: 20, height: 20)
                     }
                 }
-                .padding(16)
-                CustomShareView(isShowingModal: $isShowingModal, imageUrl: detail.dzImageUrl)
+                
+                ZStack {
+                    Circle()
+                        .fill(env.theme.buttonBackgroundColor)
+                        .frame(width: 30, height: 30)
+                    Image(systemName: "bookmark")
+                        .renderingMode(.template)
+                        .foregroundColor(env.theme.labelColor)
+                        .frame(width: 20, height: 20)
+                }
+                
             }
-            .background(env.theme.primaryBackgroundColor)
-            .cornerRadius(12)
-            .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.1), radius: 9)
-            .frame(maxWidth: .infinity)
+            .padding(16)
         }
+        .background(env.theme.primaryBackgroundColor)
+        .cornerRadius(12)
+        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.1), radius: 9)
+        .frame(maxWidth: .infinity)
         .frame(height: screenWidth + 89)
         .padding(16)
     }
     
-    func extractURLs(from text: String) -> [URL] {
-        do {
-            let pattern = #"((?:https?|ftp)://\S+)"#
-            let regex = try NSRegularExpression(pattern: pattern, options: .caseInsensitive)
-            let range = NSRange(text.startIndex..<text.endIndex, in: text)
-            let matches = regex.matches(in: text, options: [], range: range)
-            
-            let urls = matches.compactMap { match in
-                let urlRange = match.range(at: 0)
-                if let range = Range(urlRange, in: text) {
-                    return URL(string: String(text[range]))
-                }
-                return nil
-            }
-            return urls
-        } catch {
-            return []
+    func openExternalBrowser(withURL url: String) {
+        if let url = URL(string: url), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            print("Invalid URL or browser not available.")
         }
     }
 }

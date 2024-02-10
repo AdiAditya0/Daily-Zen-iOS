@@ -12,9 +12,23 @@
 		695763672B7506B400ABDA0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 695763662B7506B400ABDA0C /* Preview Assets.xcassets */; };
 		6957636C2B7506B400ABDA0C /* Daily_Zen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6957636A2B7506B400ABDA0C /* Daily_Zen.xcdatamodeld */; };
 		695763762B7506B500ABDA0C /* Daily_ZenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763752B7506B500ABDA0C /* Daily_ZenTests.swift */; };
-		695763802B7506B500ABDA0C /* Daily_ZenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6957637F2B7506B500ABDA0C /* Daily_ZenUITests.swift */; };
-		695763822B7506B500ABDA0C /* Daily_ZenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763812B7506B500ABDA0C /* Daily_ZenUITestsLaunchTests.swift */; };
 		695763942B750A1900ABDA0C /* RootNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763932B750A1900ABDA0C /* RootNavigation.swift */; };
+		695763992B750E3E00ABDA0C /* DailyZenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763982B750E3E00ABDA0C /* DailyZenViewModel.swift */; };
+		6957639B2B750E4600ABDA0C /* DailyZenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6957639A2B750E4600ABDA0C /* DailyZenView.swift */; };
+		695763A12B75120C00ABDA0C /* DailyZenCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763A02B75120C00ABDA0C /* DailyZenCardView.swift */; };
+		695763A42B75128B00ABDA0C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763A32B75128B00ABDA0C /* Theme.swift */; };
+		695763A72B75155000ABDA0C /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763A62B75155000ABDA0C /* Color+Extension.swift */; };
+		695763AA2B7534B500ABDA0C /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 695763A92B7534B500ABDA0C /* Inter.ttf */; };
+		695763AF2B753C2800ABDA0C /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 695763AE2B753C2800ABDA0C /* Inter-Medium.ttf */; };
+		695763B12B753E0200ABDA0C /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 695763B02B753E0200ABDA0C /* Inter-SemiBold.ttf */; };
+		695763B32B753E7E00ABDA0C /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763B22B753E7E00ABDA0C /* CustomFont.swift */; };
+		695763B72B75413400ABDA0C /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763B62B75413400ABDA0C /* RemoteImage.swift */; };
+		695763BD2B75497400ABDA0C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763BC2B75497400ABDA0C /* NetworkService.swift */; };
+		695763C02B754A0300ABDA0C /* DailyZenDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763BF2B754A0300ABDA0C /* DailyZenDetail.swift */; };
+		695763C22B7566D700ABDA0C /* TopBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763C12B7566D700ABDA0C /* TopBottomBorder.swift */; };
+		695763C42B756FEA00ABDA0C /* PersistenceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763C32B756FEA00ABDA0C /* PersistenceStore.swift */; };
+		695763DB2B765B8200ABDA0C /* CustomShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763DA2B765B8200ABDA0C /* CustomShareView.swift */; };
+		695763DD2B767DA700ABDA0C /* EnvironmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763DC2B767DA700ABDA0C /* EnvironmentData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +57,23 @@
 		695763712B7506B500ABDA0C /* Daily ZenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Daily ZenTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		695763752B7506B500ABDA0C /* Daily_ZenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daily_ZenTests.swift; sourceTree = "<group>"; };
 		6957637B2B7506B500ABDA0C /* Daily ZenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Daily ZenUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6957637F2B7506B500ABDA0C /* Daily_ZenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daily_ZenUITests.swift; sourceTree = "<group>"; };
-		695763812B7506B500ABDA0C /* Daily_ZenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daily_ZenUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		695763932B750A1900ABDA0C /* RootNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigation.swift; sourceTree = "<group>"; };
+		695763982B750E3E00ABDA0C /* DailyZenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyZenViewModel.swift; sourceTree = "<group>"; };
+		6957639A2B750E4600ABDA0C /* DailyZenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyZenView.swift; sourceTree = "<group>"; };
+		695763A02B75120C00ABDA0C /* DailyZenCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyZenCardView.swift; sourceTree = "<group>"; };
+		695763A32B75128B00ABDA0C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		695763A62B75155000ABDA0C /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		695763A92B7534B500ABDA0C /* Inter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inter.ttf; sourceTree = "<group>"; };
+		695763AE2B753C2800ABDA0C /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		695763B02B753E0200ABDA0C /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		695763B22B753E7E00ABDA0C /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		695763B62B75413400ABDA0C /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		695763BC2B75497400ABDA0C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		695763BF2B754A0300ABDA0C /* DailyZenDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyZenDetail.swift; sourceTree = "<group>"; };
+		695763C12B7566D700ABDA0C /* TopBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBottomBorder.swift; sourceTree = "<group>"; };
+		695763C32B756FEA00ABDA0C /* PersistenceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStore.swift; sourceTree = "<group>"; };
+		695763DA2B765B8200ABDA0C /* CustomShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShareView.swift; sourceTree = "<group>"; };
+		695763DC2B767DA700ABDA0C /* EnvironmentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +106,6 @@
 			children = (
 				6957635E2B7506B300ABDA0C /* Daily Zen */,
 				695763742B7506B500ABDA0C /* Daily ZenTests */,
-				6957637E2B7506B500ABDA0C /* Daily ZenUITests */,
 				6957635D2B7506B300ABDA0C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,6 +124,10 @@
 			isa = PBXGroup;
 			children = (
 				695763902B7509C500ABDA0C /* Features */,
+				695763BB2B75495F00ABDA0C /* Services */,
+				695763A82B7534A100ABDA0C /* Resources */,
+				695763A52B75153A00ABDA0C /* Extensions */,
+				695763A22B75127B00ABDA0C /* Utilities */,
 				6957635F2B7506B300ABDA0C /* Daily_ZenApp.swift */,
 				695763632B7506B400ABDA0C /* Assets.xcassets */,
 				6957636A2B7506B400ABDA0C /* Daily_Zen.xcdatamodeld */,
@@ -121,18 +152,12 @@
 			path = "Daily ZenTests";
 			sourceTree = "<group>";
 		};
-		6957637E2B7506B500ABDA0C /* Daily ZenUITests */ = {
-			isa = PBXGroup;
-			children = (
-				6957637F2B7506B500ABDA0C /* Daily_ZenUITests.swift */,
-				695763812B7506B500ABDA0C /* Daily_ZenUITestsLaunchTests.swift */,
-			);
-			path = "Daily ZenUITests";
-			sourceTree = "<group>";
-		};
 		695763902B7509C500ABDA0C /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				695763D82B765B6400ABDA0C /* CustomShareView */,
+				695763B42B75411200ABDA0C /* RemoteImage */,
+				695763952B750E0100ABDA0C /* DailyZen */,
 				695763912B7509E900ABDA0C /* RootNavigation */,
 			);
 			path = Features;
@@ -150,6 +175,111 @@
 			isa = PBXGroup;
 			children = (
 				695763932B750A1900ABDA0C /* RootNavigation.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		695763952B750E0100ABDA0C /* DailyZen */ = {
+			isa = PBXGroup;
+			children = (
+				695763BE2B7549F000ABDA0C /* Model */,
+				695763972B750E1200ABDA0C /* ViewModel */,
+				695763962B750E0C00ABDA0C /* View */,
+			);
+			path = DailyZen;
+			sourceTree = "<group>";
+		};
+		695763962B750E0C00ABDA0C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6957639A2B750E4600ABDA0C /* DailyZenView.swift */,
+				695763A02B75120C00ABDA0C /* DailyZenCardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		695763972B750E1200ABDA0C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				695763982B750E3E00ABDA0C /* DailyZenViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		695763A22B75127B00ABDA0C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				695763A32B75128B00ABDA0C /* Theme.swift */,
+				695763B22B753E7E00ABDA0C /* CustomFont.swift */,
+				695763C12B7566D700ABDA0C /* TopBottomBorder.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		695763A52B75153A00ABDA0C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				695763A62B75155000ABDA0C /* Color+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		695763A82B7534A100ABDA0C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				695763B02B753E0200ABDA0C /* Inter-SemiBold.ttf */,
+				695763AE2B753C2800ABDA0C /* Inter-Medium.ttf */,
+				695763A92B7534B500ABDA0C /* Inter.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		695763B42B75411200ABDA0C /* RemoteImage */ = {
+			isa = PBXGroup;
+			children = (
+				695763B52B75412600ABDA0C /* View */,
+			);
+			path = RemoteImage;
+			sourceTree = "<group>";
+		};
+		695763B52B75412600ABDA0C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				695763B62B75413400ABDA0C /* RemoteImage.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		695763BB2B75495F00ABDA0C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				695763BC2B75497400ABDA0C /* NetworkService.swift */,
+				695763C32B756FEA00ABDA0C /* PersistenceStore.swift */,
+				695763DC2B767DA700ABDA0C /* EnvironmentData.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		695763BE2B7549F000ABDA0C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				695763BF2B754A0300ABDA0C /* DailyZenDetail.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		695763D82B765B6400ABDA0C /* CustomShareView */ = {
+			isa = PBXGroup;
+			children = (
+				695763D92B765B7400ABDA0C /* View */,
+			);
+			path = CustomShareView;
+			sourceTree = "<group>";
+		};
+		695763D92B765B7400ABDA0C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				695763DA2B765B8200ABDA0C /* CustomShareView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -258,8 +388,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				695763AF2B753C2800ABDA0C /* Inter-Medium.ttf in Resources */,
 				695763672B7506B400ABDA0C /* Preview Assets.xcassets in Resources */,
 				695763642B7506B400ABDA0C /* Assets.xcassets in Resources */,
+				695763B12B753E0200ABDA0C /* Inter-SemiBold.ttf in Resources */,
+				695763AA2B7534B500ABDA0C /* Inter.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,9 +417,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				695763A72B75155000ABDA0C /* Color+Extension.swift in Sources */,
+				695763A42B75128B00ABDA0C /* Theme.swift in Sources */,
 				6957636C2B7506B400ABDA0C /* Daily_Zen.xcdatamodeld in Sources */,
+				695763B72B75413400ABDA0C /* RemoteImage.swift in Sources */,
 				695763942B750A1900ABDA0C /* RootNavigation.swift in Sources */,
+				695763C22B7566D700ABDA0C /* TopBottomBorder.swift in Sources */,
+				695763DB2B765B8200ABDA0C /* CustomShareView.swift in Sources */,
+				695763C02B754A0300ABDA0C /* DailyZenDetail.swift in Sources */,
+				695763B32B753E7E00ABDA0C /* CustomFont.swift in Sources */,
+				6957639B2B750E4600ABDA0C /* DailyZenView.swift in Sources */,
 				695763602B7506B300ABDA0C /* Daily_ZenApp.swift in Sources */,
+				695763A12B75120C00ABDA0C /* DailyZenCardView.swift in Sources */,
+				695763BD2B75497400ABDA0C /* NetworkService.swift in Sources */,
+				695763992B750E3E00ABDA0C /* DailyZenViewModel.swift in Sources */,
+				695763C42B756FEA00ABDA0C /* PersistenceStore.swift in Sources */,
+				695763DD2B767DA700ABDA0C /* EnvironmentData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,8 +448,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				695763822B7506B500ABDA0C /* Daily_ZenUITestsLaunchTests.swift in Sources */,
-				695763802B7506B500ABDA0C /* Daily_ZenUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,11 +592,12 @@
 				DEVELOPMENT_TEAM = J6P8W8M785;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Daily-Zen-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,6 +605,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.foundation.Daily-Zen";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -477,11 +625,12 @@
 				DEVELOPMENT_TEAM = J6P8W8M785;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Daily-Zen-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,6 +638,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.foundation.Daily-Zen";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

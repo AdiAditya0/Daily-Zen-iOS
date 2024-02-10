@@ -2,9 +2,7 @@ import SwiftUI
 
 struct RootNavigation: View {
     var body: some View {
-        NavigationStack {
-            VStack{}
-        }
+        DailyZenView(viewModel: DailyZenViewModel())
     }
 }
 

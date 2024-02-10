@@ -12,8 +12,6 @@
 		695763672B7506B400ABDA0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 695763662B7506B400ABDA0C /* Preview Assets.xcassets */; };
 		6957636C2B7506B400ABDA0C /* Daily_Zen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6957636A2B7506B400ABDA0C /* Daily_Zen.xcdatamodeld */; };
 		695763762B7506B500ABDA0C /* Daily_ZenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763752B7506B500ABDA0C /* Daily_ZenTests.swift */; };
-		695763802B7506B500ABDA0C /* Daily_ZenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6957637F2B7506B500ABDA0C /* Daily_ZenUITests.swift */; };
-		695763822B7506B500ABDA0C /* Daily_ZenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763812B7506B500ABDA0C /* Daily_ZenUITestsLaunchTests.swift */; };
 		695763942B750A1900ABDA0C /* RootNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763932B750A1900ABDA0C /* RootNavigation.swift */; };
 		695763992B750E3E00ABDA0C /* DailyZenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695763982B750E3E00ABDA0C /* DailyZenViewModel.swift */; };
 		6957639B2B750E4600ABDA0C /* DailyZenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6957639A2B750E4600ABDA0C /* DailyZenView.swift */; };
@@ -59,8 +57,6 @@
 		695763712B7506B500ABDA0C /* Daily ZenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Daily ZenTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		695763752B7506B500ABDA0C /* Daily_ZenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daily_ZenTests.swift; sourceTree = "<group>"; };
 		6957637B2B7506B500ABDA0C /* Daily ZenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Daily ZenUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6957637F2B7506B500ABDA0C /* Daily_ZenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daily_ZenUITests.swift; sourceTree = "<group>"; };
-		695763812B7506B500ABDA0C /* Daily_ZenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daily_ZenUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		695763932B750A1900ABDA0C /* RootNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigation.swift; sourceTree = "<group>"; };
 		695763982B750E3E00ABDA0C /* DailyZenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyZenViewModel.swift; sourceTree = "<group>"; };
 		6957639A2B750E4600ABDA0C /* DailyZenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyZenView.swift; sourceTree = "<group>"; };
@@ -110,7 +106,6 @@
 			children = (
 				6957635E2B7506B300ABDA0C /* Daily Zen */,
 				695763742B7506B500ABDA0C /* Daily ZenTests */,
-				6957637E2B7506B500ABDA0C /* Daily ZenUITests */,
 				6957635D2B7506B300ABDA0C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -128,11 +123,11 @@
 		6957635E2B7506B300ABDA0C /* Daily Zen */ = {
 			isa = PBXGroup;
 			children = (
+				695763902B7509C500ABDA0C /* Features */,
 				695763BB2B75495F00ABDA0C /* Services */,
 				695763A82B7534A100ABDA0C /* Resources */,
 				695763A52B75153A00ABDA0C /* Extensions */,
 				695763A22B75127B00ABDA0C /* Utilities */,
-				695763902B7509C500ABDA0C /* Features */,
 				6957635F2B7506B300ABDA0C /* Daily_ZenApp.swift */,
 				695763632B7506B400ABDA0C /* Assets.xcassets */,
 				6957636A2B7506B400ABDA0C /* Daily_Zen.xcdatamodeld */,
@@ -155,15 +150,6 @@
 				695763752B7506B500ABDA0C /* Daily_ZenTests.swift */,
 			);
 			path = "Daily ZenTests";
-			sourceTree = "<group>";
-		};
-		6957637E2B7506B500ABDA0C /* Daily ZenUITests */ = {
-			isa = PBXGroup;
-			children = (
-				6957637F2B7506B500ABDA0C /* Daily_ZenUITests.swift */,
-				695763812B7506B500ABDA0C /* Daily_ZenUITestsLaunchTests.swift */,
-			);
-			path = "Daily ZenUITests";
 			sourceTree = "<group>";
 		};
 		695763902B7509C500ABDA0C /* Features */ = {
@@ -462,8 +448,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				695763822B7506B500ABDA0C /* Daily_ZenUITestsLaunchTests.swift in Sources */,
-				695763802B7506B500ABDA0C /* Daily_ZenUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,7 +596,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -620,6 +605,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.foundation.Daily-Zen";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -641,7 +629,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -649,6 +638,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.foundation.Daily-Zen";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -50,107 +50,106 @@ struct ExtraButton: View {
     }
 }
 
-struct CustomShareView: View {
+struct PopupContent: View {
     @Binding var isShowingModal: Bool
     @State var isCopied = false
     @EnvironmentObject var env: EnvironmentData
     let screenWidth = UIScreen.main.bounds.size.width
+    let screenHeight = UIScreen.main.bounds.size.height
     let detail: DailyZenDetail
-    let popupHeight = 300 + (UIScreen.main.bounds.size.width > 400 ? 368 : UIScreen.main.bounds.size.width - 32)
+    let imageSize = (UIScreen.main.bounds.size.width > 600 ? 600 : UIScreen.main.bounds.size.width - 32)
     
     var body: some View {
-        VStack {}
-            .padding(0)
-            .sheet(isPresented: $isShowingModal) {
-                VStack {
-                    HStack {
-                        Text(detail.primaryCTAText)
-                            .font(CustomFonts.semiBold(16))
-                            .foregroundColor(env.theme.primaryTextColor)
-                        Spacer()
-                        Button(action: {
-                            isShowingModal = false
-                        }) {
-                            ZStack {
-                                Circle()
-                                    .fill(env.theme.buttonBackgroundColor)
-                                    .frame(width: 30, height: 30)
-                                Image(UITraitCollection.current.userInterfaceStyle == .light ? "close" : "close-dark")
-                                    .frame(width: 18, height: 20)
-                            }
-                        }
-                    }
-                    
-                    RemoteImage(url: detail.dzImageUrl)
-                        .frame(idealWidth: screenWidth - 32, maxWidth: 400, idealHeight: screenWidth - 32, maxHeight: 400)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(env.theme.borderColor, lineWidth: 1)
-                        )
-                        .cornerRadius(16)
-                    
-                    HStack {
-                        Text(detail.sharePrefix + " " + (detail.articleUrl ?? ""))
-                            .font(CustomFonts.regular(16))
-                            .padding(16)
-                        Spacer()
-                        Button(action: {
-                            UIPasteboard.general.string = detail.text + " - " + detail.author
-                            isCopied = true
-                        }) {
-                            if isCopied {
-                                Text("Copied")
-                                    .font(CustomFonts.regular(17))
-                                    .foregroundColor(Color(hex: "#FFFFFF"))
-                                    .padding(.vertical, 8.5)
-                                    .padding(.horizontal, 16)
-                            } else {
-                                Text("Copy")
-                                    .font(CustomFonts.regular(17))
-                                    .foregroundColor(Color(hex: "#EA436B"))
-                                    .padding(.vertical, 8.5)
-                                    .padding(.horizontal, 16)
-                            }
-                        }
-                        .background(isCopied ? Color(hex: "#EA436B") : Color(hex: "#EA436B26"))
-                        .cornerRadius(34)
-                        .padding(.horizontal, 16)
-                    }
-                    .background(env.theme.secondaryBackgroundColor)
-                    .frame(height: 48)
-                    .cornerRadius(50)
-                    
-                    VStack(alignment: .leading)  {
-                        Text("Share to")
-                            .font(CustomFonts.semiBold(15))
-                            .foregroundColor(env.theme.primaryTextColor)
-                            .padding(.vertical, 16)
-                        HStack {
-                            SocialMediaButton(title: "WhatsApp", image: "whatsapp-icon") {
-                                shareOnWhatsApp()
-                            }
-                            Spacer()
-                            SocialMediaButton(title: "Instagram", image: "instagram-icon") {
-                                shareOnInstagram()
-                            }
-                            Spacer()
-                            SocialMediaButton(title: "FaceBook", image: "facebook-icon") {
-                                shareOnFacebook()
-                            }
-                            Spacer()
-                            ExtraButton(title: "Download", image: "square.and.arrow.down") {}
-                            Spacer()
-                            ExtraButton(title: "More", image: "ellipsis") {
-                                moreOptions()
-                            }
-                        }
-                    }
-                    .overlay(TopBorder().stroke(env.theme.borderColor, lineWidth: 1))
+        HStack {
+            Text(detail.primaryCTAText)
+                .font(CustomFonts.semiBold(16))
+                .foregroundColor(env.theme.primaryTextColor)
+            Spacer()
+            Button(action: {
+                isShowingModal = false
+            }) {
+                ZStack {
+                    Circle()
+                        .fill(env.theme.buttonBackgroundColor)
+                        .frame(width: 30, height: 30)
+                    Image(UITraitCollection.current.userInterfaceStyle == .light ? "close" : "close-dark")
+                        .frame(width: 18, height: 20)
                 }
-                .padding(16)
-                .presentationDetents([.height(popupHeight)])
-                
             }
+        }
+        
+        Spacer()
+        
+        RemoteImage(url: detail.dzImageUrl)
+            .frame(width: imageSize, height: imageSize)
+            .overlay(
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(env.theme.borderColor, lineWidth: 1)
+            )
+            .cornerRadius(16)
+        
+        Spacer()
+        
+        HStack {
+            Text(detail.text + " - " + detail.author)
+                .font(CustomFonts.regular(16))
+                .padding(16)
+            Spacer()
+            Button(action: {
+                UIPasteboard.general.string = detail.text + " - " + detail.author
+                isCopied = true
+            }) {
+                if isCopied {
+                    Text("Copied")
+                        .font(CustomFonts.regular(17))
+                        .foregroundColor(Color(hex: "#FFFFFF"))
+                        .padding(.vertical, 8.5)
+                        .padding(.horizontal, 16)
+                } else {
+                    Text("Copy")
+                        .font(CustomFonts.regular(17))
+                        .foregroundColor(Color(hex: "#EA436B"))
+                        .padding(.vertical, 8.5)
+                        .padding(.horizontal, 16)
+                }
+            }
+            .background(isCopied ? Color(hex: "#EA436B") : Color(hex: "#EA436B26"))
+            .cornerRadius(34)
+            .padding(.horizontal, 16)
+        }
+        .background(env.theme.secondaryBackgroundColor)
+        .frame(height: 48)
+        .cornerRadius(50)
+        
+        Spacer()
+        
+        VStack(alignment: .leading)  {
+            Text("Share to")
+                .font(CustomFonts.semiBold(15))
+                .foregroundColor(env.theme.primaryTextColor)
+                .padding(.vertical, 16)
+            HStack {
+                SocialMediaButton(title: "WhatsApp", image: "whatsapp-icon") {
+                    shareOnWhatsApp()
+                }
+                Spacer()
+                SocialMediaButton(title: "Instagram", image: "instagram-icon") {
+                    shareOnInstagram()
+                }
+                Spacer()
+                SocialMediaButton(title: "FaceBook", image: "facebook-icon") {
+                    shareOnFacebook()
+                }
+                Spacer()
+                ExtraButton(title: "Download", image: "square.and.arrow.down") {}
+                Spacer()
+                ExtraButton(title: "More", image: "ellipsis") {
+                    moreOptions()
+                }
+            }
+        }
+        .overlay(TopBorder().stroke(env.theme.borderColor, lineWidth: 1))
+        Spacer()
     }
     
     func shareOnWhatsApp() {
@@ -198,8 +197,37 @@ struct CustomShareView: View {
             let activityViewController = UIActivityViewController(
                 activityItems: [detail.dzImageUrl, detail.sharePrefix + " " + (detail.articleUrl ?? "")],
                 applicationActivities: nil)
-            
+            let tempView = UIView()
+            if let popoverController = activityViewController.popoverPresentationController {
+                popoverController.sourceView = tempView
+                popoverController.sourceRect = CGRect(x: 0, y: 0, width: 0, height: 0)
+            }
             UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
         }
+    }
+}
+
+struct CustomShareView: View {
+    @Binding var isShowingModal: Bool
+    let popupHeight = 300 + UIScreen.main.bounds.size.width
+    let detail: DailyZenDetail
+    
+    var body: some View {
+        VStack {}
+            .padding(0)
+            .sheet(isPresented: $isShowingModal) {
+                if #available(iOS 16.0, *) {
+                    VStack {
+                        PopupContent(isShowingModal: $isShowingModal, detail: detail)
+                    }
+                    .padding(16)
+                    .presentationDetents([.height(popupHeight)])
+                } else {
+                    VStack {
+                        PopupContent(isShowingModal: $isShowingModal, detail: detail)
+                    }
+                    .padding(16)
+                }
+            }
     }
 }

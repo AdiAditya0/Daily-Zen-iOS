@@ -3,6 +3,7 @@ import SwiftUI
 struct DailyZenCardView: View {
     let detail: DailyZenDetail
     let screenWidth = UIScreen.main.bounds.size.width
+    let imageSize = (UIScreen.main.bounds.size.width > 600 ? 568 : UIScreen.main.bounds.size.width - 32)
     @State private var isShowingModal = false
     @EnvironmentObject var env: EnvironmentData
     
@@ -15,7 +16,7 @@ struct DailyZenCardView: View {
                 .padding(16)
             
             RemoteImage(url: detail.dzImageUrl)
-                .frame(idealWidth: screenWidth, maxWidth: 400, idealHeight: screenWidth, maxHeight: 400)
+                .frame(width: imageSize, height: imageSize)
                 .overlay(TopBottomBorder().stroke(env.theme.borderColor, lineWidth: 1))
                 .padding(-4)
             HStack {
@@ -80,7 +81,7 @@ struct DailyZenCardView: View {
         .cornerRadius(12)
         .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.1), radius: 9)
         .frame(maxWidth: .infinity)
-        .frame(height: screenWidth + 89)
+        .frame(height: imageSize + 121)
         .padding(16)
     }
     

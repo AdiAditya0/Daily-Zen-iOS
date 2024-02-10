@@ -10,7 +10,9 @@ struct RemoteImage: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
         } else {
-            ProgressView()
+            Image("placeholder-image")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
                 .onAppear(perform: loadImage)
         }
     }

@@ -124,12 +124,12 @@ class DailyZenViewModel: ObservableObject {
         }
         return details
     }
-
+    
     func deleteOlderEntities() {
         let fetchRequest: NSFetchRequest<DailyZenDetailMo> = DailyZenDetailMo.fetchRequest()
         if let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -6, to: Date()) as? NSDate {
             fetchRequest.predicate = NSPredicate(format: "dateShowed < %@", sevenDaysAgo as NSDate)
-
+            
             do {
                 let result = try context.fetch(fetchRequest)
                 
@@ -145,7 +145,7 @@ class DailyZenViewModel: ObservableObject {
             }
         }
     }
-
+    
     func startMonitoring() {
         monitor.pathUpdateHandler = { [weak self] path in
             DispatchQueue.main.async {
@@ -158,8 +158,33 @@ class DailyZenViewModel: ObservableObject {
         let queue = DispatchQueue(label: "NetworkMonitor")
         monitor.start(queue: queue)
     }
-
+    
     func stopMonitoring() {
         monitor.cancel()
+    }
+    
+    func getBarTitle() -> String {
+        if currentDayDiff == 0 {
+            return "Today"
+        } else if currentDayDiff == 1 {
+            return "Yesterday"
+        } else {
+            let currentDate = Date()
+            let calendar = Calendar.current
+            if let previousDate = calendar.date(
+                byAdding: .day,
+                value: -1 * (currentDayDiff),
+                to: currentDate) {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MMMM"
+                let monthName = dateFormatter.string(from: previousDate)
+                
+                dateFormatter.dateFormat = "dd" // Date format
+                let dateString = dateFormatter.string(from: previousDate)
+                
+                return monthName + " " + dateString
+            }
+            return "Gratitude"
+        }
     }
 }

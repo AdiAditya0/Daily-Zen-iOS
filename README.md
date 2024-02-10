@@ -32,49 +32,50 @@ More
 - **Extensions**: Used to create extension of inbuilt classes to extend their functionalities.
 
 ## Project Structure
-├── Daily Zen  
-│   ├── Daily_ZenApp.swift  
-│   ├── Features  
-│   │   ├── CustomShareView  
-│   │   │   └── View  
-│   │   │       └── CustomShareView.swift  
-│   │   ├── DailyZen  
-│   │   │   ├── Model  
-│   │   │   │   └── DailyZenDetail.swift  
-│   │   │   ├── View  
-│   │   │   │   ├── DailyZenCardView.swift  
-│   │   │   │   ├── DailyZenView.swift  
-│   │   │   │   └── DashboardCell.swift  
-│   │   │   └── ViewModel  
-│   │   │       └── DailyZenViewModel.swift  
-│   │   ├── RemoteImage  
-│   │   │   └── View  
-│   │   │       └── RemoteImage.swift  
-│   │   └── RootNavigation  
-│   │       └── View  
-│   │           └── RootNavigation.swift  
-│   ├── Services  
-│   │   ├── EnvironmentData.swift  
-│   │   ├── NetworkService.swift  
-│   │   └── PersistenceStore.swift  
-│   ├── Preview Content  
-│   ├── Resources  
-│   │   ├── Inter-Medium.ttf  
-│   │   ├── Inter-SemiBold.ttf  
-│   │   └── Inter.ttf  
-│   ├── Extensions  
-│   │   └── Color+Extension.swift  
-│   ├── Assets.xcassets  
-│   ├── Daily_Zen.xcdatamodeld  
-│   └── Utilities  
-│       ├── CustomFont.swift  
-│       ├── Theme.swift  
-│       └── TopBottomBorder.swift  
-├── Daily Zen.xcodeproj  
-├── Daily ZenTests  
-│   └── Daily_ZenTests.swift  
-├── Daily-Zen-Info.plist  
-└── README.md  
+    .
+    ├── Daily Zen  
+    │   ├── Daily_ZenApp.swift  
+    │   ├── Features  
+    │   │   ├── CustomShareView  
+    │   │   │   └── View  
+    │   │   │       └── CustomShareView.swift  
+    │   │   ├── DailyZen  
+    │   │   │   ├── Model  
+    │   │   │   │   └── DailyZenDetail.swift  
+    │   │   │   ├── View  
+    │   │   │   │   ├── DailyZenCardView.swift  
+    │   │   │   │   ├── DailyZenView.swift  
+    │   │   │   │   └── DashboardCell.swift  
+    │   │   │   └── ViewModel  
+    │   │   │       └── DailyZenViewModel.swift  
+    │   │   ├── RemoteImage  
+    │   │   │   └── View  
+    │   │   │       └── RemoteImage.swift  
+    │   │   └── RootNavigation  
+    │   │       └── View  
+    │   │           └── RootNavigation.swift  
+    │   ├── Services  
+    │   │   ├── EnvironmentData.swift  
+    │   │   ├── NetworkService.swift  
+    │   │   └── PersistenceStore.swift  
+    │   ├── Preview Content  
+    │   ├── Resources  
+    │   │   ├── Inter-Medium.ttf  
+    │   │   ├── Inter-SemiBold.ttf  
+    │   │   └── Inter.ttf  
+    │   ├── Extensions  
+    │   │   └── Color+Extension.swift  
+    │   ├── Assets.xcassets  
+    │   ├── Daily_Zen.xcdatamodeld  
+    │   └── Utilities  
+    │       ├── CustomFont.swift  
+    │       ├── Theme.swift  
+    │       └── TopBottomBorder.swift  
+    ├── Daily Zen.xcodeproj  
+    ├── Daily ZenTests  
+    │   └── Daily_ZenTests.swift  
+    ├── Daily-Zen-Info.plist  
+    └── README.md  
 
 ## Installation
 
